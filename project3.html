@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <link rel="stylesheet" href="project3.css">
+    <link href='https://unpkg.com/css.gg@2.0.0/icons/css/check-o.css' rel='stylesheet'>
+    <link href='https://unpkg.com/css.gg@2.0.0/icons/css/danger.css' rel='stylesheet'>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <div id="mainbox">
+        <div id="header"><p>REGISTERATION FORM</p></div>
+        <div id="innerbox" >
+            <p class="headings">Username</p>
+            <div class="formcontrol" style="display: flex; flex-direction: row; width: 110%;">
+            <input type="text" id="USERNAME" class="textboxes" placeholder="Enter your Fullname">
+            <i class="gg-check-o"></i>
+            <i class="gg-danger"></i>
+            </div>
+            <small class="abc" id="username">cannot be blank</small>
+            
+            <p class="headings">Email</p>
+            <div class="formcontrol" style="display: flex; flex-direction: row; width: 110%;">
+            <input type="text" id="EMAIL" class="textboxes" placeholder="Enter your emailID">
+            <i class="gg-check-o"></i>
+            <i class="gg-danger"></i></div>
+            <small class="formcontrol" id="email">cannot be blank</small>
+            
+            <p class="headings">Phone Number</p>
+            <div  class="formcontrol" style="display: flex; flex-direction: row; width: 110%;">
+            <input type="text" id="PHONENUMBER" class="textboxes" placeholder="Enter your phone number">
+            <i class="gg-check-o"></i>
+            <i class="gg-danger"></i></div>
+            <small class="formcontrol" id="phonenum">cannot be blank</small>
+
+            <p class="headings">Password</p>
+            <div class="formcontrol" style="display: flex; flex-direction: row; width: 110%;">
+            <input type="password" id="PASSWORD" class="textboxes" placeholder="Enter your password">
+            <i class="gg-check-o"></i>
+            <i class="gg-danger"></i></div>
+            <small class="formcontrol" id="password">cannot be blank</small>
+
+            <p class="headings">Password Check</p>
+            <div  class="formcontrol" style="display: flex; flex-direction: row; width: 110%;">
+            <input type="password" id="CPASSWORD" class="textboxes" placeholder="Confirm Passowrd">
+            <i class="gg-check-o"></i>
+            <i class="gg-danger"></i></div>
+            <small class="formcontrol" id="cpassword">cannot be blank</small>
+
+            <button id="subbut">SUBMIT</button>
+        </div>
+    </div>
+    <script>
+        const btn= document.getElementById("subbut");
+const username= document.getElementById("USERNAME");
+const email= document.getElementById("EMAIL");
+const phonenum= document.getElementById("PHONENUMBER");
+const password= document.getElementById("PASSWORD");
+const cpassword= document.getElementById("CPASSWORD");
+let a=1,b=1,c=1,d=1,e=1;
+
+const seterrormgs= (input,displaymsg)=>{
+    const need= input.parentElement;
+    const need1= need.parentElement;
+    if(input== username){
+        const ans= need1.querySelector("#username");
+        ans.innerText= displaymsg;
+        ans.className= "abc error";
+    }
+    else if(input== password){
+        const ans= need1.querySelector("#password");
+        ans.innerText= displaymsg;
+        ans.className= "abc error";
+    }
+    else if(input== email){
+        const ans= need1.querySelector("#email");
+        ans.innerText= displaymsg;
+        ans.className= "abc error";
+    }
+    else if(input== phonenum){
+        const ans= need1.querySelector("#phonenum");
+        ans.innerText= displaymsg;
+        ans.className= "abc error";
+    }
+    else if(input== cpassword){
+        const ans= need1.querySelector("#cpassword");
+        ans.innerText= displaymsg;
+        ans.className= "abc error";
+    }
+    need.className= "formcontrol error";
+    
+}
+
+const setsuccessmgs= (input)=>{
+    const need= input.parentElement;
+    need.className= "formcontrol success";
+    const need1= need.parentElement;
+    if(input== username){
+        const ans= need1.querySelector("#username");
+        ans.className= "abc success";
+    }
+    else if(input== password){
+        const ans= need1.querySelector("#password");
+        ans.className= "abc success";
+    }
+    else if(input== email){
+        const ans= need1.querySelector("#email");
+        ans.className= "abc success";
+    }
+    else if(input== phonenum){
+        const ans= need1.querySelector("#phonenum");
+        ans.className= "abc success";
+    }
+    else if(input== cpassword){
+        const ans= need1.querySelector("#cpassword");
+        ans.className= "abc success";
+    }
+}
+btn.addEventListener('click', function(){
+    const usernameval= username.value.trim();
+    const emailval= email.value.trim();
+    const phonenumval= phonenum.value.trim();
+    const passwordval= password.value.trim();
+    const cpassowrdval= cpassword.value.trim();
+
+    if(usernameval===""){
+        seterrormgs(username,"Username cannot be blank");
+    }
+    else if(usernameval.length <4){
+        seterrormgs(username,"Username must contain atleast 4 letters");
+    }
+    else{
+        setsuccessmgs(username);
+        a=0;
+    }
+
+    if(emailval===""){
+        seterrormgs(email,"Email cannot be blank");
+    }
+    else if(emailval.indexOf("@")==0){
+        seterrormgs(email,"Invalid email");
+    }
+    else if(emailval.indexOf("@")+3> emailval.indexOf(".")){
+        seterrormgs(email,"Invalid email");
+    }
+    else{
+        setsuccessmgs(email);
+        b=0;
+    }
+
+    if(phonenumval===""){
+        seterrormgs(phonenum,"Phone Number cannot be blank");
+    }
+    else if(phonenumval.length !=10){
+        seterrormgs(phonenum,"Phone Number must contain 10 digits");
+    }
+    else{
+        setsuccessmgs(phonenum);
+        c=0;
+    }
+
+    if(passwordval===""){
+        seterrormgs(password,"Password cannot be blank");
+    }
+    else if(passwordval.length <7){
+        seterrormgs(password,"Password must contain 8 figures");
+    }
+    else{
+        setsuccessmgs(password);
+        d=0;
+    }
+
+    if(cpassowrdval===""){
+        seterrormgs(cpassword,"Password cannot be blank");
+    }
+    else if(cpassowrdval.length <7){
+        seterrormgs(cpassowrd,"Password must contain 8 figures");
+    }
+    else if(cpassowrdval != passwordval){
+        seterrormgs(cpassword,"Password doesn't match");
+    }
+    else{
+        setsuccessmgs(cpassword);
+        e=0;
+    }
+
+    if(a==0 && b==0 && c==0 && d==0 && e==0){
+    alert("Welcome "+usernameval);
+    Swal.fire({
+  title: "Login Successful",
+  text: "Welcome "+ usernameval +" :)",
+  icon: "success"
+    });
+    }
+})
+    </script>
+</body>
+</html>

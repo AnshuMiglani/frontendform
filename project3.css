@@ -1,0 +1,103 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-image: linear-gradient(135deg, #baa7d65f, #3fc1ae67),url("buildingsh.jpg");
+    font-family: system-ui;
+
+}
+#mainbox{
+    width: 400px;
+    height: 450px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 5px 10px 8px 0 rgba(0, 0, 0, 0.2);
+}
+#header{
+    width: 100%;
+    height: 15%;
+    background: #BAA7D6;
+    background: linear-gradient(135deg, #BAA7D6, #3FC1AE);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    font-weight: bold;
+}
+#innerbox{
+    display: flex;
+    flex-direction: column;
+    padding: 6%;
+}
+.textboxes{
+    width: 100%;
+    height: 10%; padding: 6px;
+    font-size: 0.7em;
+}
+#subbut{
+    /* background-color: aquamarine; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    height: 28px;
+    border-radius: 5px;
+    border-color: #3FC1AE;
+    margin-top: 9px;
+    /*
+* Created with https://www.css-gradient.com
+* Gradient link: https://www.css-gradient.com/?c1=baa7d6&c2=3fc1ae&gt=l&gd=dtl
+*/
+background: #BAA7D6;
+background: linear-gradient(135deg, #BAA7D6, #3FC1AE);
+}
+.headings{
+    font-size: 0.8em;
+    margin-bottom: 1px;
+}
+.gg-check-o{
+    position: absolute;
+    right: 27px;
+    top: 3px;
+    visibility: hidden;
+}
+.gg-danger{
+    position: absolute;
+    right: 43px;
+    top: 3px;
+    visibility: hidden;
+}
+small{
+    font-size: 0.5em;
+    visibility: hidden;
+    margin-bottom: 3px;
+}
+.formcontrol.success i.gg-check-o{
+    visibility: visible;
+    color: rgb(9, 190, 9);
+}
+.formcontrol.success input{
+    border-color: rgb(9, 190, 9);
+}
+.formcontrol.error i.gg-danger{
+    visibility: visible;
+    color: rgb(255, 45, 45);
+}
+.formcontrol.error input{
+    border-color: rgb(255, 45, 45);
+}
+.abc.error{
+    visibility: visible;
+    color: rgb(255, 45, 45);
+}
+.abc.success{
+    visibility: hidden;
+}
